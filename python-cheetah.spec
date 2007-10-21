@@ -1,7 +1,7 @@
 Summary: Python-powered template engine and code-generator
 Name: python-cheetah
 Version: 1.0
-Release: %mkrel 4
+Release: %mkrel 5
 URL: http://www.CheetahTemplate.org/
 Source0: http://prdownloads.sourceforge.net/cheetahtemplate/Cheetah-%{version}.tar.bz2
 Patch: python-cheetah-1.0-future.patch
@@ -9,6 +9,8 @@ License: MIT like
 Group: Development/Python
 BuildRequires: python-devel
 BuildRoot: %{_tmppath}/%{name}-buildroot
+Conflicts: python-cheetah2
+Obsoletes: python-cheetah2
 
 %description
 * generates HTML, SGML, XML, SQL, Postscript, form email, LaTeX, or any other
