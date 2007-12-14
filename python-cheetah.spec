@@ -1,5 +1,5 @@
 Summary: Python-powered template engine and code-generator
-Name: python-cheetah2
+Name: python-cheetah
 Version: 2.0
 Release: %mkrel 1
 URL: http://www.CheetahTemplate.org/
