@@ -1,9 +1,10 @@
 Summary: Python-powered template engine and code-generator
 Name: python-cheetah
 Version: 2.0.1
-Release: %mkrel 3
+Release: %mkrel 4
 URL: http://www.CheetahTemplate.org/
 Source0: http://prdownloads.sourceforge.net/cheetahtemplate/Cheetah-%{version}.tar.bz2
+Patch0: Cheetah-2.0.1-use-hashlib.patch
 License: MIT like
 Group: Development/Python
 BuildRequires: python-devel
@@ -32,6 +33,7 @@ Python-cheetah:
 
 %prep
 %setup -q -n Cheetah-%version
+%patch0 -p1
 
 %build
 python setup.py build
