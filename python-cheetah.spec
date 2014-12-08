@@ -6,7 +6,7 @@ License:	MIT like
 Group:		Development/Python
 Url:		http://www.CheetahTemplate.org/
 Source0:	http://pypi.python.org/packages/source/C/Cheetah/Cheetah-%{version}.tar.gz
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python2)
 Provides:	python-cheetah2
 
 %description
@@ -32,10 +32,10 @@ Python-cheetah:
 %setup -qn Cheetah-%{version}
 
 %build
-python setup.py build
+%{__python2} setup.py build
 
 %install
-python setup.py install --root %{buildroot}
+%{__python2} setup.py install --root %{buildroot}
 
 %files
 %doc CHANGES LICENSE TODO
