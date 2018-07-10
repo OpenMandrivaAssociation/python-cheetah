@@ -1,7 +1,7 @@
 Summary:	Python-powered template engine and code-generator
 Name:		python-cheetah
 Version:	2.4.4
-Release:	12
+Release:	13
 License:	MIT like
 Group:		Development/Python
 Url:		http://www.CheetahTemplate.org/
