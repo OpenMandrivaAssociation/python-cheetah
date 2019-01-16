@@ -1,11 +1,11 @@
 Summary:	Python-powered template engine and code-generator
 Name:		python-cheetah
-Version:	2.4.4
-Release:	14
+Version:	3.1.0
+Release:	1
 License:	MIT like
 Group:		Development/Python
 Url:		http://www.CheetahTemplate.org/
-Source0:	http://pypi.python.org/packages/source/C/Cheetah/Cheetah-%{version}.tar.gz
+Source0:	https://pypi.python.org/packages/54/86/ea50bb5baf1daa8ca1a56774d48150a69376679d27c4130848702efc378c/Cheetah3-%{version}.tar.gz
 BuildRequires:	pkgconfig(python2)
 Provides:	python-cheetah2
 
@@ -32,14 +32,13 @@ Python-cheetah:
 %setup -qn Cheetah-%{version}
 
 %build
-%{__python2} setup.py build
+python setup.py build
 
 %install
-%{__python2} setup.py install --root %{buildroot}
+python setup.py install --root %{buildroot}
 
 %files
 %doc CHANGES LICENSE TODO
 %{_libdir}/python*/site-packages/Cheetah
 %{_libdir}/python*/site-packages/*.egg-info
 %{_bindir}/*
-
