@@ -4,7 +4,7 @@ Version:	3.1.0
 Release:	4
 License:	MIT
 Group:		Development/Python
-Url:		http://www.CheetahTemplate.org/
+Url:		https://www.CheetahTemplate.org/
 Source0:	https://pypi.python.org/packages/54/86/ea50bb5baf1daa8ca1a56774d48150a69376679d27c4130848702efc378c/Cheetah3-%{version}.tar.gz
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python3egg(setuptools)
