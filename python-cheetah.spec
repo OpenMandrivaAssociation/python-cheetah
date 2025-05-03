@@ -1,13 +1,21 @@
-Summary:	Python-powered template engine and code-generator
+%define module cheetah
+%define oname cheetah3
+
 Name:		python-cheetah
-Version:	3.1.0
-Release:	4
+Version:	3.4.0
+Release:	1
 License:	MIT
+Summary:	Python-powered template engine and code-generator
 Group:		Development/Python
-Url:		https://www.CheetahTemplate.org/
-Source0:	https://pypi.python.org/packages/54/86/ea50bb5baf1daa8ca1a56774d48150a69376679d27c4130848702efc378c/Cheetah3-%{version}.tar.gz
-BuildRequires:	pkgconfig(python)
-BuildRequires:	python3egg(setuptools)
+URL:		https://www.CheetahTemplate.org/
+Source0:	https://github.com/CheetahTemplate3/cheetah3/archive/%{version}/%{module}-%{version}.tar.gz
+
+BuildRequires:	pkgconfig(python3)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(wheel)
+
+Recommends:	python%{pyver}dist(markdown)
+Suggests:		python%{pyver}dist(pygments)
 
 %description
 Python-cheetah:
@@ -28,20 +36,10 @@ Python-cheetah:
   improve the performance of a dynamic website.
 * compiles templates into optimized, yet readable, Python code.
 
-#----------------------------------------------------------------------------
-
-%files
-%doc ANNOUNCE.rst README.rst TODO BUGS LICENSE
-%{_bindir}/*
-%{py3_platsitedir}/
-
-#----------------------------------------------------------------------------
-
 %prep
-%setup -q -n Cheetah3-%{version}
+%autosetup -n %{oname}-%{version} -p1
 # remove unnecessary shebang lines to silence rpmlint
-sed -i -e '/^#!/,1d' Cheetah/Tests/* \
-         Cheetah/DirectiveAnalyzer.py Cheetah/Utils/Misc.py
+find . -name \*.py -print0 |xargs -0 -t -l sed -i -e '1{\@^#!%{_bindir}/env python@d}'
 
 %build
 %py3_build
@@ -49,3 +47,9 @@ sed -i -e '/^#!/,1d' Cheetah/Tests/* \
 %install
 %py3_install
 
+%files
+%{_bindir}/%{module}*
+%{py3_platsitedir}/Cheetah
+%{py3_platsitedir}/CT3-%{version}*.*-info
+%doc ANNOUNCE.rst README.rst BUGS
+%license LICENSE
