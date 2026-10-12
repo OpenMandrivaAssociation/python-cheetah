@@ -3,7 +3,7 @@
 
 Name:		python-cheetah
 Version:	3.4.0
-Release:	3
+Release:	4
 License:	MIT
 Summary:	Python-powered template engine and code-generator
 Group:		Development/Python
